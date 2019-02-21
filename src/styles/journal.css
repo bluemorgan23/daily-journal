@@ -1,0 +1,35 @@
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#moodSelect {
+    width: 100px;
+}
+
+button {
+    display: flex;
+    width: 150px;
+    margin: 10px;
+}
+
+.journalDate {
+    display: flex;
+    flex-direction: column;
+}
+
+.conceptsCovered {
+    display: flex;
+    flex-direction: column;
+}
+
+.journalEntry {
+    display: flex;
+    flex-direction: column;
+}
+
+.moodSelect {
+    display: flex;
+    flex-direction: column;
+}
