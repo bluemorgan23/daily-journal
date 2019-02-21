@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="styles/journal.css">
+</head>
+
+<body>
+    <h1><em>Daily Journal</em></h1>
+    <form action="">
+        <fieldset class="journalDate">
+            <label for="journalDate">Date of Entry</label>
+            <input type="date" name="journalDate" id="journalDate">
+        </fieldset>
+        <fieldset class="conceptsCovered">
+            <label for="conceptsCovered">Concepts Covered</label>
+            <input type="text" name="conceptsCovered" id="conceptsCovered">
+        </fieldset>
+        <fieldset class="journalEntry">
+            <label for="journalEntry">Journal Entry</label>
+            <textarea name="journalEntry" id="journalEntry" cols="30" rows="10"></textarea>
+        </fieldset>
+        <fieldset class="moodSelect">
+            <label for="moodSelect">Mood</label>
+            <select name="moodSelect" id="moodSelect">
+                <option value="Happy">Happy</option>
+                <option value="Just Okay">Just Okay</option>
+                <option value="Dispair">Dispair</option>
+            </select>
+        </fieldset>
+        <button type="submit">Record Journal Entry</button>
+    </form>
+</body>
+
+</html>
