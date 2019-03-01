@@ -14,6 +14,7 @@ const submitButton = document.getElementById("submitButton");
 //created a blank array to store journal entries in
 const allEntries = [];
 
+
 //defined the keys for each journal entry
 const objectsJournalEntry = {
     date: entryDate,
