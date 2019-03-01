@@ -32,6 +32,7 @@ const enter = () => {
     objectsJournalEntry.entry = entryMain.value;
     objectsJournalEntry.mood = entryMood.value;
     allEntries.push(objectsJournalEntry);
+   
 
     document.getElementById("journalContainer").reset();
     console.log(allEntries);
