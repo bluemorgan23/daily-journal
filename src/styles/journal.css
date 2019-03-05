@@ -33,3 +33,9 @@ button {
     display: flex;
     flex-direction: column;
 }
+
+.journalEntry--container {
+    border: 1px solid black;
+    margin: 20px;
+    text-align: center;
+}
