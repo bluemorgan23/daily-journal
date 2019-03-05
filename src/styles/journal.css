@@ -39,3 +39,16 @@ button {
     margin: 20px;
     text-align: center;
 }
+
+.journalEntry--main {
+    margin: 20px;
+}
+
+.journalEntry--title {
+    font-size: 1.5em;
+    text-decoration: underline;
+}
+
+.journalEntry--mood {
+    font-style: italic; 
+}
