@@ -9,9 +9,12 @@ form {
 }
 
 button {
-    display: flex;
     width: 150px;
+    height: 30px;
     margin: 10px;
+    border: 2px solid black;
+    background-color: grey;
+    font-weight: bold;
 }
 
 .journalDate {
@@ -52,3 +55,21 @@ button {
 .journalEntry--mood {
     font-style: italic; 
 }
+
+body {
+    background-color: darkseagreen;
+}
+
+fieldset {
+    margin: 5px;
+    border-color: gray;
+}
+
+label {
+    font-weight: bold;
+}
+
+.mainTitle {
+    font-style: italic;
+}
+
