@@ -34,12 +34,10 @@ const allEntries = [
 const makeJournalEntryComponent = (journalEntry) => {
     // Create your own HTML structure for a journal entry
     return `
-    <div class="journalEntry--container>
         <h1 class="journalEntry--title">${journalEntry.title}</h1>
-        <h2 class="journalEntry--date">${journalEntry.date}</h2>
+        <h4 class="journalEntry--date">${journalEntry.date}</h4>
         <p class="journalEntry--main">${journalEntry.entry}</p>
         <p class="journalEntry--mood">${journalEntry.mood}</p>
-    </div>
     `
 }
 
@@ -48,12 +46,13 @@ const makeJournalEntryComponent = (journalEntry) => {
 
     Arguments: entries (array of objects)
 */
+
 const renderJournalEntries = (entries) => {
-    entryLog.appendChild(entries);
+    entryLog.innerHTML += makeJournalEntryComponent(entries);
 }
 
 // Invoke the render function
-renderJournalEntries(allEntries)
+// renderJournalEntries(allEntries)
 
 //defined the keys for each journal entry
 // const objectsJournalEntry = {
@@ -67,13 +66,15 @@ renderJournalEntries(allEntries)
 //also added a reset method to the form after the values are stored and pushed into the array
 //the console logs the array of entries each time the button is clicked
 const enter = () => {
-    makeJournalEntryComponent(this)
-    this.date = entryDate.value;
-    this.title = entryConcepts.value;
-    this.entry = entryMain.value;
-    this.mood = entryMood.value;
+    
+   
+    allEntries.date = entryDate.value;
+    allEntries.title = entryConcepts.value;
+    allEntries.entry = entryMain.value;
+    allEntries.mood = entryMood.value;
+    renderJournalEntries(allEntries);
     allEntries.push(this);
-   renderJournalEntries(this);
+    
 
     document.getElementById("journalContainer").reset();
     console.log(allEntries);
