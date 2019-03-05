@@ -36,7 +36,7 @@ const enter = () => {
             <div class="journalEntry--container">
                 <h3 class="journalEntry--title">${journalEntry.title}</h3>
                 <p class="journalEntry--main">${journalEntry.entry}</p>
-                <p class="journalEntry--mood">${journalEntry.mood}</p>
+                <p class="journalEntry--mood">I am feeling ${journalEntry.mood}</p>
                 <h4 class="journalEntry--date">${journalEntry.date}</h4>
             </div>
         `
