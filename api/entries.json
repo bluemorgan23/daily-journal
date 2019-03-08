@@ -1,24 +1,32 @@
 {
-    "allEntries": [{
-            "title": "APIs",
-            "date": "3/7/2019",
-            "entry": "APIs are tough",
-            "mood": "Just Okay",
-            "id": 1
-        },
-        {
-            "title": "GRUNT",
-            "date": "3/7/2019",
-            "entry": "I'm still not exactly sure about everything GRUNT can do. I had an issue with my .gitignore file that caused me to push up 10,000 files into my repository. This was frustrating but I figured out how to remove them.",
-            "mood": "Just Okay",
-            "id": 2
-        },
-        {
-            "title": "API's (again)",
-            "date": "2019-03-07",
-            "entry": "Just finished Daily Journal 3, feeling a lot better about working with API's now. Will definitely get more difficult when pulling data in from public API's. Cheers!",
-            "mood": "Happy",
-            "id": 3
-        }
-    ]
+  "allEntries": [
+    {
+      "title": "APIs",
+      "date": "3/7/2019",
+      "entry": "APIs are tough",
+      "mood": "Just Okay",
+      "id": 1
+    },
+    {
+      "title": "GRUNT",
+      "date": "3/7/2019",
+      "entry": "I'm still not exactly sure about everything GRUNT can do. I had an issue with my .gitignore file that caused me to push up 10,000 files into my repository. This was frustrating but I figured out how to remove them.",
+      "mood": "Just Okay",
+      "id": 2
+    },
+    {
+      "title": "API's (again)",
+      "date": "2019-03-07",
+      "entry": "Just finished Daily Journal 3, feeling a lot better about working with API's now. Will definitely get more difficult when pulling data in from public API's. Cheers!",
+      "mood": "Happy",
+      "id": 3
+    },
+    {
+      "title": "Modularization",
+      "date": "2019-03-08",
+      "entry": "This morning, I finished up Daily Journal Part 5. The challenge asked us to \"clean up\" our journal.js file by creating three new js files. I moved the API data handling functions into data.js. I moved the HTML building function into entryComponent.js. I moved the DOM building functions into entriesDOM.js. In each new js file, I declared objects which store all of these functions as methods. This is called modularization. It makes it easier to read code. This was pretty challenging but also very rewarding.",
+      "mood": "Happy",
+      "id": 4
+    }
+  ]
 }
