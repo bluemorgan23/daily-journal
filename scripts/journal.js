@@ -2,62 +2,70 @@
 const submitButton = document.getElementById("submitButton");
 
 //Created a blank array to store journal entries in
-const allEntries = [];
+// const allEntries = [];
+const makeJournalEntryComponent = (journalEntry) => {
+    // Create your own HTML structure for a journal entry
+    return `
+        <div class="journalEntry--container">
+            <h3 class="journalEntry--title">${journalEntry.title}</h3>
+            <p class="journalEntry--main">${journalEntry.entry}</p>
+            <p class="journalEntry--mood">I am feeling ${journalEntry.mood}</p>
+            <h4 class="journalEntry--date">${journalEntry.date}</h4>
+        </div>
+    `
+}
+
+const renderJournalEntries = (entriesArray) => {
+    const entryLog = document.querySelector(".entryLog");
+
+    entryLog.innerHTML = "";
+    entriesArray.forEach(entry => {
+        entryLog.innerHTML += makeJournalEntryComponent(entry);
+    });
+
+};
+
+const getEntries = () => {
+    return fetch("http://localhost:8088/allEntries")
+        .then(response => response.json());
+}
+
+const postEntries = (newEntryObject) => {
+    return fetch("http://localhost:8088/allEntries", {
+            method: "POST",
+            body: JSON.stringify(newEntryObject),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        .then(response => response.json());
+}
+
+getEntries().then(parsedResponse => renderJournalEntries(parsedResponse));
+
 
 //enter function runs when the button is clicked, storing the values of the targetted elements in the input form at the time the button is clicked
-const enter = () => {
+submitButton.addEventListener("click", event => {
 
     //defined variables that are set equal to the input values targetted below
-    const entryDate = document.getElementById("journalDate");
-    const entryConcepts = document.getElementById("conceptsCovered");
-    const entryMain = document.getElementById("journalEntry");
-    const entryMood = document.getElementById("moodSelect");
-
-    //target the article element in index.html in order to manipulate the DOM
-    const entryLog = document.querySelector(".entryLog");
+    const entryDate = document.getElementById("journalDate").value;
+    const entryConcepts = document.getElementById("conceptsCovered").value;
+    const entryMain = document.getElementById("journalEntry").value;
+    const entryMood = document.getElementById("moodSelect").value;
 
     //Define the keys and value for a JavaScript object that
     //represents a journal entry about what you learned today
     const objectsJournalEntry = {
-        date: entryDate.value,
-        title: entryConcepts.value,
-        entry: entryMain.value,
-        mood: entryMood.value
+        title: entryConcepts,
+        date: entryDate,
+        entry: entryMain,
+        mood: entryMood
     };
 
-    //Purpose: To create, and return, a string template that
-    //represents a single journal entry object as HTML
+    postEntries(objectsJournalEntry)
+        .then(() => getEntries())
+        .then(parsedResponse => renderJournalEntries(parsedResponse));
 
-    //Arguments: journalEntry (object)
-    const makeJournalEntryComponent = (journalEntry) => {
-        // Create your own HTML structure for a journal entry
 
-        return `
-            <div class="journalEntry--container">
-                <h3 class="journalEntry--title">${journalEntry.title}</h3>
-                <p class="journalEntry--main">${journalEntry.entry}</p>
-                <p class="journalEntry--mood">I am feeling ${journalEntry.mood}</p>
-                <h4 class="journalEntry--date">${journalEntry.date}</h4>
-            </div>
-        `
-    }
-
-    //Purpose: To render all journal entries to the DOM
-    //Arguments: entries (array of objects)
-    const renderJournalEntries = (entries) => {
-        entryLog.innerHTML += makeJournalEntryComponent(entries);
-    }
-
-    //push the objectsJournalEntry that has been created into the array allEntries
-    //render this object into the dom as well by invoking renderJournalEntries function
-    allEntries.push(objectsJournalEntry);
-    renderJournalEntries(objectsJournalEntry);
-
-    //also added a reset method to the form after the values are stored and pushed into the array
     document.getElementById("journalContainer").reset();
-
-    //the console logs the array of entries each time the button is clicked
-    console.log(allEntries);
-}
-
-submitButton.addEventListener("click", enter);
+});
