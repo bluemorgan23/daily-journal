@@ -27,6 +27,27 @@
       "entry": "This morning, I finished up Daily Journal Part 5. The challenge asked us to \"clean up\" our journal.js file by creating three new js files. I moved the API data handling functions into data.js. I moved the HTML building function into entryComponent.js. I moved the DOM building functions into entriesDOM.js. In each new js file, I declared objects which store all of these functions as methods. This is called modularization. It makes it easier to read code. This was pretty challenging but also very rewarding.",
       "mood": "Happy",
       "id": 4
+    },
+    {
+      "title": "This is a test",
+      "date": "2019-03-09",
+      "entry": "Testing to show what thsi does ",
+      "mood": "Happy",
+      "id": 5
+    },
+    {
+      "title": "This is a test",
+      "date": "2019-03-19",
+      "entry": "TEasenfpasefnil;lksef",
+      "mood": "Happy",
+      "id": 6
+    },
+    {
+      "title": "",
+      "date": "",
+      "entry": "asdfasg tergdg",
+      "mood": "Happy",
+      "id": 7
     }
   ]
 }
