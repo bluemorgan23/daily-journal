@@ -4,44 +4,22 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
+    <title>Daily Journal</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="src/styles/journal.css">
 </head>
 
 <body>
     <h1 class="mainTitle">Daily Journal</h1>
-    <form id="journalContainer">
-        <fieldset class="journalDate">
-            <label for="journalDate">Date of Entry</label>
-            <input type="date" name="journalDate" id="journalDate">
-        </fieldset>
-        <fieldset class="conceptsCovered">
-            <label for="conceptsCovered">Concepts Covered</label>
-            <input type="text" name="conceptsCovered" id="conceptsCovered">
-        </fieldset>
-        <fieldset class="journalEntry">
-            <label for="journalEntry">Journal Entry</label>
-            <textarea name="journalEntry" id="journalEntry" cols="30" rows="10"></textarea>
-        </fieldset>
-        <fieldset class="moodSelect">
-            <label for="moodSelect">Mood</label>
-            <select name="moodSelect" id="moodSelect">
-                <option value="Happy">Happy</option>
-                <option value="Just Okay">Just Okay</option>
-                <option value="Dispair">Dispair</option>
-            </select>
-        </fieldset>
-        <button id="submitButton" type="button">Record Journal Entry</button>
-    </form>
-    <article class="entryLog">
-
-    </article>
+    <section id="journalContainer"></section>
+    
+    <article class="entryLog"></article>
+    
+    <script src="./scripts/formHTML.js"></script>
     <script src="./scripts/entriesDom.js"></script>
     <script src="./scripts/entryComponent.js"></script>
     <script src="./scripts/data.js"></script>
-    
-    
+    <script src="./scripts/eventHandlers.js"></script>
     <script src="scripts/journal.js"></script>
 </body>
 
