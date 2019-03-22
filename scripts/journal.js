@@ -1,6 +1,6 @@
 //Target the submit button and assign the variable submitButton to it
 const submitButton = document.getElementById("submitButton");
-
+const cachedEntries = API.getEntries();
 
 
 /*
@@ -8,6 +8,10 @@ const submitButton = document.getElementById("submitButton");
     defined in the other JavaScript files.
 */
 API.getEntries().then(parsedResponse => DOM.renderJournalEntries(parsedResponse));
+
+
+
+
 
 const deleteButtons = document.getElementsByName("delete")
 deleteButtons.forEach(button => {
