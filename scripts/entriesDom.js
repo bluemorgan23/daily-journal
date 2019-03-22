@@ -9,7 +9,7 @@ const DOM = {
 
     entryLog.innerHTML = "";
     entriesArray.forEach(entry => {
-        entryLog.innerHTML += ENTRYCOMP.makeJournalEntryComponent(entry);
+        entryLog.appendChild(ENTRYCOMP.makeJournalEntryComponent(entry));
     });
 
     }

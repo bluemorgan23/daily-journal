@@ -1,3 +1,5 @@
+const getEntriesCached = API.getEntries();
+
 const submitHandler = () => {
     /*
     defined variables that are set equal to the input values targetted below
@@ -17,8 +19,7 @@ const submitHandler = () => {
     .then the parsedResponse (the entry Array) is passed as an argument to the renderJournalEntries method of the DOM object, which puts the updated Array into the DOM
     */
     API.postEntries(buildEntryObject(entryConcepts, entryDate, entryMain, entryMood))
-        .then(() => API.getEntries())
-        .then(parsedResponse => DOM.renderJournalEntries(parsedResponse))
+        .then(() => API.getEntries()).then(response => DOM.renderJournalEntries(response));
     /*
     Reset the input fields
     */
@@ -52,4 +53,11 @@ const radioHandler = () => {
         }
         
     })).then((response) => DOM.renderJournalEntries(response));
+}
+
+
+const handleDeleteButton = () => {
+    let entryId = event.target.id.split("--")[1];
+    
+    deleteEntry(entryId).then(() => API.getEntries()).then(response => DOM.renderJournalEntries(response));
 }
