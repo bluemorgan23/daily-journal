@@ -20,17 +20,14 @@ const API = {
                     "Content-Type": "application/json"
                 }
             })
-            .then(response => response.json());
-    }
+            .then(() => API.getEntries())
+            .then(response => DOM.renderJournalEntries(response));
+    },
 
-    // deleteEntry: function(entryId) {
-    //     fetch(`${url}/${entryId}`, {
-    //         method: "DELETE"
-    //     })
-    // }
+    deleteEntry: function(entryId) {
+        return fetch(`${url}/${entryId}`, {
+            method: "DELETE"
+        })
+    }
     
 }
-
-const deleteEntry = (entryId) => fetch(`${url}/${entryId}`, {
-    method: "DELETE"
-})

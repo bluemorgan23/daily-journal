@@ -34,13 +34,3 @@ const ENTRYCOMP = {
     return divEntryContainer;
     }
 }
-
-// return `
-//         <div class="journalEntry--container">
-//             <h3 class="journalEntry--title">${journalEntry.title}</h3>
-//             <p class="journalEntry--main">${journalEntry.entry}</p>
-//             <p class="journalEntry--mood">I am feeling ${journalEntry.mood}</p>
-//             <h4 class="journalEntry--date">${journalEntry.date}</h4>
-//             <button name="delete" id="${journalEntry.id}" class="delete-entry">Delete Journal Entry</button>
-//         </div>
-//     `

@@ -8,10 +8,19 @@ const submitHandler = () => {
     const entryConcepts = document.getElementById("conceptsCovered").value;
     const entryMain = document.getElementById("journalEntry").value;
     const entryMood = document.getElementById("moodSelect").value;
-    
-    if (entryMain.length > 100) {
+    const notAllowed = ["(", ")", "{", "}", ":", ";"];
+
+    if(entryConcepts === "" || entryMain === ""){
+        return alert("You Left a Field Blank");
+    } if (entryMain.length > 100) {
         return alert("Your entry is too long");
+    } 
+    notAllowed.forEach(char => {
+        if (entryMain.includes(char)) {
+            return alert("Illegal Characters");
     }
+    })
+    
 
     /*
     Call the postEntries() method from the API object (see data.js) which adds the new journal entry to the API. The factory function buildEntryObject() is passed in as a parameter.
@@ -19,7 +28,6 @@ const submitHandler = () => {
     .then the parsedResponse (the entry Array) is passed as an argument to the renderJournalEntries method of the DOM object, which puts the updated Array into the DOM
     */
     API.postEntries(buildEntryObject(entryConcepts, entryDate, entryMain, entryMood))
-        .then(() => API.getEntries()).then(response => DOM.renderJournalEntries(response));
     /*
     Reset the input fields
     */
@@ -59,5 +67,5 @@ const radioHandler = () => {
 const handleDeleteButton = () => {
     let entryId = event.target.id.split("--")[1];
     
-    deleteEntry(entryId).then(() => API.getEntries()).then(response => DOM.renderJournalEntries(response));
+    API.deleteEntry(entryId).then(() => API.getEntries()).then(response => DOM.renderJournalEntries(response))
 }

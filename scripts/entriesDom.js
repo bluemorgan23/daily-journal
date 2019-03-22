@@ -11,6 +11,5 @@ const DOM = {
     entriesArray.forEach(entry => {
         entryLog.appendChild(ENTRYCOMP.makeJournalEntryComponent(entry));
     });
-
     }
 }
