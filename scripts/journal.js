@@ -1,11 +1,21 @@
 //Target the submit button and assign the variable submitButton to it
 const submitButton = document.getElementById("submitButton");
 
+
+
 /*
     Main application logic that uses the functions and objects
     defined in the other JavaScript files.
 */
 API.getEntries().then(parsedResponse => DOM.renderJournalEntries(parsedResponse));
+
+const deleteButtons = document.getElementsByName("delete")
+deleteButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        handleDeleteButton(button.id)
+    });
+})
+
 /*
     Factory function that builds the journal entry object
 */
@@ -23,4 +33,6 @@ const buildEntryObject = (title, date, entry, mood) => {
 */
 submitButton.addEventListener("click", submitHandler);
 document.getElementsByName("moodFilterRadio").forEach(button => {
-    button.addEventListener("click", radioHandler)})
+    button.addEventListener("click", radioHandler)});
+
+
