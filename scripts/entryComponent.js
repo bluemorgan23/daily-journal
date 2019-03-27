@@ -49,10 +49,6 @@ const ENTRYCOMP = {
     buildEditForm: function(entryObject, entryMain, entryTitle) {
         let editFormFragment = document.createDocumentFragment();
         
-        // let entryTitle = document.querySelector(`#journalEntry-title--${entryId}`);
-        // let entryMain = document.querySelector(`#journalEntry-main--${entryId}`);
-        // let entryDate = document.querySelector(`#journalEntry-date--${entryId}`);
-        
         const dateFieldset = buildEl("fieldset",);
         dateFieldset.appendChild(buildEl("legend", "Date"));
         dateFieldset.appendChild(buildEl("input", undefined, "journalEdit-date", "date"));
@@ -64,8 +60,12 @@ const ENTRYCOMP = {
         editFormFragment.appendChild(titleFieldset);
 
         const mainFieldset = buildEl("fieldset");
+       
         mainFieldset.appendChild(buildEl("legend", "Entry"));
-        mainFieldset.appendChild(buildEl("textarea", entryMain, "journalEdit-main"))
+        const entry = (buildEl("textarea", entryMain, "journalEdit-main"));
+        entry.setAttribute("rows", "5");
+        entry.setAttribute("cols", "50");
+        mainFieldset.appendChild(entry);
         editFormFragment.appendChild(mainFieldset);
 
 
