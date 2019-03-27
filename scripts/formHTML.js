@@ -41,7 +41,7 @@ const buildFormFields = () => {
         </fieldset>
         <fieldset id="searchEntries">
             <legend>Search journal entries</legend>
-            <input placeholder="Enter search term" type="text">
+            <input id="journalEntry-search" placeholder="Enter search term" type="text">
         </fieldset>
     </section>
     `

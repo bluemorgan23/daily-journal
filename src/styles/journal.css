@@ -43,19 +43,6 @@ button {
     text-align: center;
 }
 
-.journalEntry--main {
-    margin: 20px;
-}
-
-.journalEntry--title {
-    font-size: 1.5em;
-    text-decoration: underline;
-}
-
-.journalEntry--mood {
-    font-style: italic; 
-}
-
 body {
     background-color: darkseagreen;
 }
@@ -72,4 +59,21 @@ label {
 .mainTitle {
     font-style: italic;
 }
+
+#filterSection {
+    display: flex;
+    justify-content: space-around;
+}
+
+#searchEntries {
+    max-width: 40%;
+    height: 50px;
+}
+
+.moodFilter {
+    max-width: 40%;
+}
+
+
+
 
