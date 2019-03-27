@@ -36,11 +36,18 @@
       "id": 5
     },
     {
-      "title": "Coming Together 2",
-      "date": "2019-03-26",
-      "entry": "Got all of the previous values to shift over to the input fields.",
-      "mood": "Just Okay",
+      "title": "Browserify/Grunt",
+      "date": "",
+      "entry": "Looks like grunt and browserify are running properly on the project. Just double checking.",
+      "mood": "Happy",
       "id": 6
+    },
+    {
+      "title": "Browserify",
+      "date": "2019-03-27",
+      "entry": "Today we learned about Browserify and how it relates to modularization. I had to setup grunt on my daily journal project in order to run Browserify. This was difficult to achieve, but it was a great learning experience on how GRUNT works. Then, installing browserify and making sure the file paths were all correct was a learning experience. I was forced to modularize my code again and import/export certain items in order for the program to run. This was actually pretty cool to learn.",
+      "mood": "Happy",
+      "id": 7
     }
   ]
 }
