@@ -69,3 +69,41 @@ const handleDeleteButton = () => {
     
     API.deleteEntry(entryId).then(() => API.getEntries()).then(response => DOM.renderJournalEntries(response))
 }
+
+const handleEditButton = () => {
+    let entryId = event.target.id.split("--")[1];
+
+    
+    const entryArticle = document.querySelector(`#journalEntry--${entryId}`);
+    let entryTitle = document.querySelector(`#journalEntry-title--${entryId}`).textContent;
+    let entryMain = document.querySelector(`#journalEntry-main--${entryId}`).textContent;
+    
+    while(entryArticle.firstChild){
+        entryArticle.removeChild(entryArticle.firstChild)
+    };
+
+    API.getEntries().then(entryToEdit => {
+        const editForm = ENTRYCOMP.buildEditForm(entryToEdit, entryMain, entryTitle);
+        entryArticle.appendChild(editForm);
+    })
+
+}
+
+const handleUpdateButton = () => {
+    let entryId = event.target.parentNode.id.split("--")[1];
+    
+    const editedEntryTitle = document.querySelector("#journalEdit-title");
+    const editedEntryMain = document.querySelector("#journalEdit-main");
+    const editedEntryDate = document.querySelector("#journalEdit-date");
+    const editedEntryMood = document.querySelector("#mood-edit");
+
+    let editedEntry = {
+        title: editedEntryTitle.value,
+        date: editedEntryDate.value,
+        entry: editedEntryMain.value,
+        mood: editedEntryMood.value
+    }
+
+    API.putEntry(entryId, editedEntry).then(() => API.getEntries()).then(response => DOM.renderJournalEntries(response))
+    
+}
