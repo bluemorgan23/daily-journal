@@ -107,3 +107,20 @@ const handleUpdateButton = () => {
     API.putEntry(entryId, editedEntry).then(() => API.getEntries()).then(response => DOM.renderJournalEntries(response))
     
 }
+
+const searchInputField = document.querySelector("#journalEntry-search");
+
+searchInputField.addEventListener("keydown", KeyboardEvent => {
+    if(KeyboardEvent.key === "Enter"){
+        let results = [];
+        const searchTerm = searchInputField.value;
+        API.getEntries().then(response => response.forEach(entry => {
+                if(entry.title.includes(searchTerm) || entry.entry.includes(searchTerm)){
+                    //console.log(entry);
+                    results.push(entry);  
+            }
+            
+        })).then(() => DOM.renderJournalEntries(results))
+        searchInputField.value = "";
+    }
+})
