@@ -14,13 +14,13 @@ const submitHandler = () => {
         return alert("You Left a Field Blank");
     } if (entryMain.length > 100) {
         return alert("Your entry is too long");
-    } 
+    }
     notAllowed.forEach(char => {
         if (entryMain.includes(char)) {
             return alert("Illegal Characters");
     }
     })
-    
+
 
     /*
     Call the postEntries() method from the API object (see data.js) which adds the new journal entry to the API. The factory function buildEntryObject() is passed in as a parameter.
@@ -59,25 +59,24 @@ const radioHandler = () => {
             }
             return inDispair;
         }
-        
     })).then((response) => DOM.renderJournalEntries(response));
 }
 
 
 const handleDeleteButton = () => {
     let entryId = event.target.id.split("--")[1];
-    
+
     API.deleteEntry(entryId).then(() => API.getEntries()).then(response => DOM.renderJournalEntries(response))
 }
 
 const handleEditButton = () => {
     let entryId = event.target.id.split("--")[1];
 
-    
+
     const entryArticle = document.querySelector(`#journalEntry--${entryId}`);
     let entryTitle = document.querySelector(`#journalEntry-title--${entryId}`).textContent;
     let entryMain = document.querySelector(`#journalEntry-main--${entryId}`).textContent;
-    
+
     while(entryArticle.firstChild){
         entryArticle.removeChild(entryArticle.firstChild)
     };
@@ -91,7 +90,7 @@ const handleEditButton = () => {
 
 const handleUpdateButton = () => {
     let entryId = event.target.parentNode.id.split("--")[1];
-    
+
     const editedEntryTitle = document.querySelector("#journalEdit-title");
     const editedEntryMain = document.querySelector("#journalEdit-main");
     const editedEntryDate = document.querySelector("#journalEdit-date");
@@ -105,7 +104,7 @@ const handleUpdateButton = () => {
     }
 
     API.putEntry(entryId, editedEntry).then(() => API.getEntries()).then(response => DOM.renderJournalEntries(response))
-    
+
 }
 
 const searchInputField = document.querySelector("#journalEntry-search");
@@ -117,9 +116,9 @@ searchInputField.addEventListener("keydown", KeyboardEvent => {
         API.getEntries().then(response => response.forEach(entry => {
                 if(entry.title.includes(searchTerm) || entry.entry.includes(searchTerm)){
                     //console.log(entry);
-                    results.push(entry);  
+                    results.push(entry);
             }
-            
+
         })).then(() => DOM.renderJournalEntries(results))
         searchInputField.value = "";
     }

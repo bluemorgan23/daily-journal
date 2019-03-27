@@ -10,7 +10,7 @@ const buildEl = (el, text, id, type, name, value) => {
     }
     if(type){
         newEl.setAttribute("type", type);
-    } 
+    }
 
     if(name){
         newEl.setAttribute("name", name);
@@ -48,19 +48,19 @@ const ENTRYCOMP = {
 
     buildEditForm: function(entryObject, entryMain, entryTitle) {
         let editFormFragment = document.createDocumentFragment();
-        
+
         const dateFieldset = buildEl("fieldset",);
         dateFieldset.appendChild(buildEl("legend", "Date"));
         dateFieldset.appendChild(buildEl("input", undefined, "journalEdit-date", "date"));
         editFormFragment.appendChild(dateFieldset);
-        
+
         const titleFieldset = buildEl("fieldset");
         titleFieldset.appendChild(buildEl("legend", "Concepts"));
         titleFieldset.appendChild(buildEl("textarea", entryTitle, "journalEdit-title"))
         editFormFragment.appendChild(titleFieldset);
 
         const mainFieldset = buildEl("fieldset");
-       
+
         mainFieldset.appendChild(buildEl("legend", "Entry"));
         const entry = (buildEl("textarea", entryMain, "journalEdit-main"));
         entry.setAttribute("rows", "5");

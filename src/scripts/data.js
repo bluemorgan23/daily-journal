@@ -1,7 +1,7 @@
 /*
     Modularized version of former code. Created the API object that defines two methods, getEntries and postEntries.
     getEntries pulls the entries from the API with a fetch call
-    postEntries will post a new to the API 
+    postEntries will post a new to the API
 */
 const url = "http://localhost:8088/allEntries";
 
@@ -11,7 +11,7 @@ const API = {
     return fetch(url)
         .then(response => response.json());
     },
-    
+
     postEntries: function(newEntryObject) {
         return fetch(url, {
                 method: "POST",
@@ -39,7 +39,7 @@ const API = {
             body: JSON.stringify(updatedEntryObject)
         })
     },
-    
+
     patchEntry: function(entryId, updatedEntryObject) {
         return fetch(`${url}/${entryId}`, {
             method: "PATCH",
@@ -49,5 +49,5 @@ const API = {
             body: JSON.stringify(updatedEntryObject)
         })
     }
-    
+
 }
