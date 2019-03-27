@@ -28,6 +28,26 @@ const API = {
         return fetch(`${url}/${entryId}`, {
             method: "DELETE"
         })
+    },
+
+    putEntry: function(entryId, updatedEntryObject) {
+        return fetch(`${url}/${entryId}`, {
+            method: "PUT",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(updatedEntryObject)
+        })
+    },
+    
+    patchEntry: function(entryId, updatedEntryObject) {
+        return fetch(`${url}/${entryId}`, {
+            method: "PATCH",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(updatedEntryObject)
+        })
     }
     
 }
