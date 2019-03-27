@@ -1,12 +1,8 @@
 const formContainer = document.querySelector("#journalContainer");
 
-const buildElementWithText = (element, text) => {
-    let newEl = document.createElement(element);
-    newEl.textContent = text;
-    return newEl
-}
+const formHTML = {
 
-const buildFormFields = () => {
+    buildFormFields: function() {
     return formContainer.innerHTML = `
     <form id="form">
         <fieldset class="journalDate--fieldset">
@@ -45,6 +41,7 @@ const buildFormFields = () => {
         </fieldset>
     </section>
     `
+    }
 }
 
-buildFormFields();
+export default formHTML

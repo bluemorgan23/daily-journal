@@ -3,6 +3,7 @@
     getEntries pulls the entries from the API with a fetch call
     postEntries will post a new to the API
 */
+import DOM from "./entriesDom"
 const url = "http://localhost:8088/allEntries";
 
 const API = {
@@ -51,3 +52,5 @@ const API = {
     }
 
 }
+
+export default API;

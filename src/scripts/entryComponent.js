@@ -1,6 +1,7 @@
 /*
     Modularized version of previous code. The obj ENTRYCOMP is defined and contains the makeJournalEntryComponent(journalEntry) method expression. The purpose of this method is to build an HTML string out of the journalEntry object by passing in the values for each key. The journalEntryObject is defined in journal.js / see for reference.
 */
+import eventHandlers from "./eventHandlers"
 
 const buildEl = (el, text, id, type, name, value) => {
     let newEl = document.createElement(el);
@@ -34,9 +35,9 @@ const ENTRYCOMP = {
     const entryDate = buildEl("p", `${journalEntry.date}`,`journalEntry-date--${journalEntry.id}`);
     const deleteButton = buildEl("button", "Delete Entry",`journalEntry-delete--${journalEntry.id}`);
     deleteButton.classList.add("delete-entry");
-    deleteButton.addEventListener("click", handleDeleteButton);
+    deleteButton.addEventListener("click", eventHandlers.handleDeleteButton);
     const editButton = buildEl("button", "Edit Entry", `journalEntry-edit--${journalEntry.id}`);
-    editButton.addEventListener("click", handleEditButton);
+    editButton.addEventListener("click", eventHandlers.handleEditButton);
     divEntryContainer.appendChild(entryTitle);
     divEntryContainer.appendChild(entryMain);
     divEntryContainer.appendChild(entryMood);
@@ -79,8 +80,10 @@ const ENTRYCOMP = {
         editFormFragment.appendChild(moodFieldset);
 
         const updateEntry = buildEl("button", "Save");
-        updateEntry.addEventListener("click", handleUpdateButton)
+        updateEntry.addEventListener("click", eventHandlers.handleUpdateButton)
         editFormFragment.appendChild(updateEntry);
         return editFormFragment;
     }
 }
+
+export default ENTRYCOMP
