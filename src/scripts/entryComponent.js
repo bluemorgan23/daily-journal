@@ -31,7 +31,7 @@ const ENTRYCOMP = {
     divEntryContainer.id = `journalEntry--${journalEntry.id}`;
     const entryTitle = buildEl("h3", `${journalEntry.title}`, `journalEntry-title--${journalEntry.id}`);
     const entryMain = buildEl("p", journalEntry.entry, `journalEntry-main--${journalEntry.id}`);
-    const entryMood = buildEl("p", journalEntry.mood, `journalEntry-mood--${journalEntry.id}`);
+    const entryMood = buildEl("p", journalEntry.mood.label, `journalEntry-mood--${journalEntry.id}`);
     const entryDate = buildEl("p", `${journalEntry.date}`,`journalEntry-date--${journalEntry.id}`);
     const deleteButton = buildEl("button", "Delete Entry",`journalEntry-delete--${journalEntry.id}`);
     deleteButton.classList.add("delete-entry");

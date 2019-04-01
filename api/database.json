@@ -4,50 +4,71 @@
       "title": "APIs",
       "date": "3/7/2019",
       "entry": "APIs are tough",
-      "mood": "Just Okay",
+      "moodId": 2,
       "id": 1
     },
     {
       "title": "GRUNT",
       "date": "3/7/2019",
       "entry": "I'm still not exactly sure about everything GRUNT can do. I had an issue with my .gitignore file that caused me to push up 10,000 files into my repository. This was frustrating but I figured out how to remove them.",
-      "mood": "Just Okay",
+      "moodId": 2,
       "id": 2
     },
     {
       "title": "API's (again)",
       "date": "2019-03-07",
       "entry": "Just finished Daily Journal 3, feeling a lot better about working with API's now. Will definitely get more difficult when pulling data in from public API's. Cheers!",
-      "mood": "Happy",
+      "moodId": 1,
       "id": 3
     },
     {
       "title": "Modularization",
       "date": "2019-03-08",
       "entry": "This morning, I finished up Daily Journal Part 5. The challenge asked us to \"clean up\" our journal.js file by creating three new js files. I moved the API data handling functions into data.js. I moved the HTML building function into entryComponent.js. I moved the DOM building functions into entriesDOM.js. In each new js file, I declared objects which store all of these functions as methods. This is called modularization. It makes it easier to read code. This was pretty challenging but also very rewarding.",
-      "mood": "Happy",
+      "moodId": 1,
       "id": 4
     },
     {
       "title": "Working on Daily Journal",
       "date": "2019-03-26",
       "entry": "I have added an edit button to the daily journal entries. This has been quite the task!",
-      "mood": "Just Okay",
+      "moodId": 2,
       "id": 5
     },
     {
       "title": "Browserify/Grunt",
       "date": "",
       "entry": "Looks like grunt and browserify are running properly on the project. Just double checking.",
-      "mood": "Happy",
+      "moodId": 1,
       "id": 6
     },
     {
       "title": "Browserify",
       "date": "2019-03-27",
       "entry": "Today we learned about Browserify and how it relates to modularization. I had to setup grunt on my daily journal project in order to run Browserify. This was difficult to achieve, but it was a great learning experience on how GRUNT works. Then, installing browserify and making sure the file paths were all correct was a learning experience. I was forced to modularize my code again and import/export certain items in order for the program to run. This was actually pretty cool to learn.",
-      "mood": "Happy",
+      "moodId": 1,
       "id": 7
+    },
+    {
+      "title": "Normalization, Browserify, and Bootstrap",
+      "date": "2019-04-01",
+      "entry": "I've normalized the data for the journal entry API that I created using a JSON database. This is a cool process because it allows you to set up related data in a much cleaner way. I've also been practicing with Bootstrap recently. I aim to keep implementing Bootstrap into projects in order to get better at using its features. ",
+      "moodId": 1,
+      "id": 8
+    }
+  ],
+  "moods": [
+    {
+      "id": 1,
+      "label": "Happy"
+    },
+    {
+      "id": 2,
+      "label": "Just Okay"
+    },
+    {
+      "id": 3,
+      "label": "Dispair"
     }
   ]
 }
