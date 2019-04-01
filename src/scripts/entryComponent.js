@@ -33,6 +33,7 @@ const ENTRYCOMP = {
     const entryMain = buildEl("p", journalEntry.entry, `journalEntry-main--${journalEntry.id}`);
     const entryMood = buildEl("p", journalEntry.mood.label, `journalEntry-mood--${journalEntry.id}`);
     const entryDate = buildEl("p", `${journalEntry.date}`,`journalEntry-date--${journalEntry.id}`);
+    const entryInstructor = buildEl("p", `Instructor: ${journalEntry.instructor.firstName} ${journalEntry.instructor.lastName}`)
     const deleteButton = buildEl("button", "Delete Entry",`journalEntry-delete--${journalEntry.id}`);
     deleteButton.classList.add("delete-entry");
     deleteButton.addEventListener("click", eventHandlers.handleDeleteButton);
@@ -42,6 +43,7 @@ const ENTRYCOMP = {
     divEntryContainer.appendChild(entryMain);
     divEntryContainer.appendChild(entryMood);
     divEntryContainer.appendChild(entryDate);
+    divEntryContainer.appendChild(entryInstructor);
     divEntryContainer.appendChild(deleteButton);
     divEntryContainer.appendChild(editButton);
     return divEntryContainer;
@@ -78,6 +80,14 @@ const ENTRYCOMP = {
         moodSelect.appendChild(buildEl("option", "Dispair", undefined, undefined, undefined, "Dispair"))
         moodFieldset.appendChild(moodSelect);
         editFormFragment.appendChild(moodFieldset);
+
+        const instructorFieldset = buildEl("fieldset")
+        instructorFieldset.appendChild(buildEl("legend", "Select Instructor"))
+        const instructorSelect = buildEl("select", undefined, "instructor-edit")
+        instructorSelect.appendChild(buildEl("option", "Jisie David", undefined, undefined, undefined, "Jisie David"))
+        instructorSelect.appendChild(buildEl("option", "Kristen Norris", undefined, undefined, undefined, "Kristen Norris"))
+        instructorFieldset.appendChild(instructorSelect);
+        editFormFragment.appendChild(instructorFieldset);
 
         const updateEntry = buildEl("button", "Save");
         updateEntry.addEventListener("click", eventHandlers.handleUpdateButton)

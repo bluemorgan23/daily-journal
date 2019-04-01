@@ -2,12 +2,13 @@ import API from "./data"
 import DOM from "./entriesDom"
 import ENTRYCOMP from "./entryComponent"
 
-const buildEntryObject = (title, date, entry, moodId) => {
+const buildEntryObject = (title, date, entry, moodId, instructorId) => {
     let objectsJournalEntry = {
         title: title,
         date: date,
         entry: entry,
-        moodId: moodId
+        moodId: moodId,
+        instructorId: instructorId
     };
 
     return objectsJournalEntry;
@@ -23,6 +24,16 @@ const eventHandlers = {
         const entryMain = document.getElementById("journalEntry").value;
         let entryMood = document.getElementById("moodSelect").value;
         const notAllowed = ["(", ")", "{", "}", ":", ";"];
+        let entryInstructor = document.getElementById("instructorSelect").value;
+
+        switch(true){
+            case(entryInstructor === "Jisie David"):
+                entryInstructor = 1;
+                break;
+            case(entryInstructor === "Kristen Norris"):
+                entryInstructor = 2;
+                break;
+        }
 
         switch(true){
             case(entryMood === "Happy"):
@@ -53,7 +64,7 @@ const eventHandlers = {
         .then after the entry is posted, call the getEntries() method from the API object (see data.js) which gets the updated Array of all journal entries
         .then the parsedResponse (the entry Array) is passed as an argument to the renderJournalEntries method of the DOM object, which puts the updated Array into the DOM
         */
-        API.postEntries(buildEntryObject(entryConcepts, entryDate, entryMain, entryMood))
+        API.postEntries(buildEntryObject(entryConcepts, entryDate, entryMain, entryMood, entryInstructor))
         /*
         Reset the input fields
         */
@@ -100,13 +111,14 @@ const eventHandlers = {
         const entryArticle = document.querySelector(`#journalEntry--${entryId}`);
         let entryTitle = document.querySelector(`#journalEntry-title--${entryId}`).textContent;
         let entryMain = document.querySelector(`#journalEntry-main--${entryId}`).textContent;
+        let entryInstructor = document.querySelector(`#journalEntry-instructor--${entryId}`.textContent)
 
         while(entryArticle.firstChild){
             entryArticle.removeChild(entryArticle.firstChild)
         };
 
         API.getEntries().then(entryToEdit => {
-            const editForm = ENTRYCOMP.buildEditForm(entryToEdit, entryMain, entryTitle);
+            const editForm = ENTRYCOMP.buildEditForm(entryToEdit, entryMain, entryTitle, entryInstructor);
             entryArticle.appendChild(editForm);
         })
 
@@ -118,6 +130,16 @@ const eventHandlers = {
         const editedEntryMain = document.querySelector("#journalEdit-main");
         const editedEntryDate = document.querySelector("#journalEdit-date");
         let editedEntryMood = document.querySelector("#mood-edit").value;
+        let editedEntryInstructor = document.querySelector("#instructor-edit").value;
+
+        switch(true){
+            case(editedEntryInstructor === "Jisie David"):
+                editedEntryInstructor = 1;
+                break;
+            case(editedEntryInstructor === "Kristen Norris"):
+                editedEntryInstructor = 2;
+                break;
+        }
 
         switch(true){
             case(editedEntryMood === "Happy"):
@@ -131,7 +153,7 @@ const eventHandlers = {
                 break;
         }
 
-        let editedEntry = buildEntryObject(editedEntryTitle.value, editedEntryDate.value, editedEntryMain.value, editedEntryMood)
+        let editedEntry = buildEntryObject(editedEntryTitle.value, editedEntryDate.value, editedEntryMain.value, editedEntryMood, editedEntryInstructor)
 
         API.putEntry(entryId, editedEntry).then(() => API.getEntries()).then(response => DOM.renderJournalEntries(response))
 
@@ -153,32 +175,3 @@ const eventHandlers = {
 }
 
 export default eventHandlers;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// searchInputField.addEventListener("keydown", KeyboardEvent => {
-//     const searchInputField = document.querySelector("#journalEntry-search");
-//     if(KeyboardEvent.key === "Enter"){
-//         let results = [];
-//         const searchTerm = searchInputField.value;
-//         API.getEntries().then(response => response.forEach(entry => {
-//                 if(entry.title.includes(searchTerm) || entry.entry.includes(searchTerm)){
-//                     //console.log(entry);
-//                     results.push(entry);
-//             }
-
-//         })).then(() => DOM.renderJournalEntries(results))
-//         searchInputField.value = "";
-//     }
-// })

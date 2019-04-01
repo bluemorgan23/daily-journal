@@ -9,7 +9,7 @@ const url = "http://localhost:8088/allEntries";
 const API = {
 
     getEntries: function() {
-    return fetch(`${url}/?_expand=mood`)
+    return fetch(`${url}/?_expand=mood&_expand=instructor`)
         .then(response => response.json());
     },
 
