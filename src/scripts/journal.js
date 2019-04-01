@@ -24,4 +24,5 @@ submitButton.addEventListener("click", eventHandlers.submitHandler);
 document.getElementsByName("moodFilterRadio").forEach(button => {
     button.addEventListener("click", eventHandlers.radioHandler)});
 
+document.querySelector("#journalEntry-search").addEventListener("keydown", eventHandlers.searchEvent)
 

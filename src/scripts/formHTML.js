@@ -25,6 +25,13 @@ const formHTML = {
                 <option value="Dispair">Dispair</option>
             </select>
         </fieldset>
+        <fieldset class="instructorSelect--fieldset">
+            <legend>Select Instructor</legend>
+            <select name="instructorSelect" id="instructorSelect">
+                <option value="Jisie David">Jisie David</option>
+                <option value="Kristen Norris">Kristen Norris</option>
+            </select>
+        </fieldset>
         <button id="submitButton" type="button">Record Journal Entry</button>
     </form>
     <hr/>

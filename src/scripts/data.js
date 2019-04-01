@@ -9,12 +9,12 @@ const url = "http://localhost:8088/allEntries";
 const API = {
 
     getEntries: function() {
-    return fetch(url)
+    return fetch(`${url}/?_expand=mood&_expand=instructor`)
         .then(response => response.json());
     },
 
     postEntries: function(newEntryObject) {
-        return fetch(url, {
+        return fetch(`${url}`, {
                 method: "POST",
                 body: JSON.stringify(newEntryObject),
                 headers: {
