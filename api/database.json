@@ -63,14 +63,6 @@
       "moodId": 1,
       "instructorId": 1,
       "id": 8
-    },
-    {
-      "title": "Test",
-      "date": "2019-04-01",
-      "entry": "This is a test",
-      "moodId": 1,
-      "instructorId": 1,
-      "id": 9
     }
   ],
   "moods": [
