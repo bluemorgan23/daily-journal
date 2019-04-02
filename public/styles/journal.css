@@ -2,8 +2,20 @@ form {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    margin: 10px;
 }
 
+#filterContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+#formCard {
+    margin: 0px 5px 0px 5px;
+}
+/*
 #moodSelect {
     width: 100px;
 }
@@ -36,13 +48,13 @@ button {
     display: flex;
     flex-direction: column;
 }
+*/
 
 .journalEntry--container {
-    border: 1px solid black;
     margin: 20px;
     text-align: center;
 }
-
+/*
 body {
     background-color: darkseagreen;
 }
@@ -72,7 +84,7 @@ label {
 
 .moodFilter {
     max-width: 40%;
-}
+} */
 
 
 

@@ -2,17 +2,17 @@
   "allEntries": [
     {
       "title": "APIs",
-      "date": "3/7/2019",
+      "date": "2019-04-01",
       "entry": "APIs are tough",
-      "moodId": 2,
-      "instructorId": 2,
+      "moodId": 1,
+      "instructorId": 1,
       "id": 1
     },
     {
       "title": "GRUNT",
-      "date": "3/7/2019",
+      "date": "2019-03-19",
       "entry": "I'm still not exactly sure about everything GRUNT can do. I had an issue with my .gitignore file that caused me to push up 10,000 files into my repository. This was frustrating but I figured out how to remove them.",
-      "moodId": 2,
+      "moodId": 1,
       "instructorId": 1,
       "id": 2
     },
@@ -42,10 +42,10 @@
     },
     {
       "title": "Browserify/Grunt",
-      "date": "",
+      "date": "2019-03-27",
       "entry": "Looks like grunt and browserify are running properly on the project. Just double checking.",
       "moodId": 1,
-      "instructorId": 2,
+      "instructorId": 1,
       "id": 6
     },
     {
@@ -63,6 +63,14 @@
       "moodId": 1,
       "instructorId": 1,
       "id": 8
+    },
+    {
+      "title": "Test",
+      "date": "2019-04-01",
+      "entry": "This is a test",
+      "moodId": 1,
+      "instructorId": 1,
+      "id": 9
     }
   ],
   "moods": [

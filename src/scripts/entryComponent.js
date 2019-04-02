@@ -28,33 +28,53 @@ const ENTRYCOMP = {
     // Create your own HTML structure for a journal entry
     const divEntryContainer = document.createElement("div");
     divEntryContainer.classList.add("journalEntry--container");
+    divEntryContainer.classList.add("card");
+    divEntryContainer.classList.add("bg-light");
     divEntryContainer.id = `journalEntry--${journalEntry.id}`;
     const entryTitle = buildEl("h3", `${journalEntry.title}`, `journalEntry-title--${journalEntry.id}`);
+    entryTitle.classList.add("card-header")
+    entryTitle.classList.add("mb-3")
     const entryMain = buildEl("p", journalEntry.entry, `journalEntry-main--${journalEntry.id}`);
+    entryMain.classList.add("card-text");
     const entryMood = buildEl("p", journalEntry.mood.label, `journalEntry-mood--${journalEntry.id}`);
+    entryMood.classList.add("card-text");
     const entryDate = buildEl("p", `${journalEntry.date}`,`journalEntry-date--${journalEntry.id}`);
+    entryDate.classList.add("card-text");
     const entryInstructor = buildEl("p", `Instructor: ${journalEntry.instructor.firstName} ${journalEntry.instructor.lastName}`)
+    entryInstructor.classList.add("card-text");
+    const buttonContainer = buildEl("div");
+    buttonContainer.classList.add("mb-1");
+    buttonContainer.classList.add("button-group");
     const deleteButton = buildEl("button", "Delete Entry",`journalEntry-delete--${journalEntry.id}`);
     deleteButton.classList.add("delete-entry");
+    deleteButton.classList.add("btn-danger");
+    deleteButton.classList.add("btn-sm");
+    deleteButton.classList.add("ml-1");
     deleteButton.addEventListener("click", eventHandlers.handleDeleteButton);
     const editButton = buildEl("button", "Edit Entry", `journalEntry-edit--${journalEntry.id}`);
+    editButton.classList.add("btn-warning")
+    editButton.classList.add("btn-sm")
     editButton.addEventListener("click", eventHandlers.handleEditButton);
+    buttonContainer.appendChild(editButton);
+    buttonContainer.appendChild(deleteButton);
     divEntryContainer.appendChild(entryTitle);
     divEntryContainer.appendChild(entryMain);
     divEntryContainer.appendChild(entryMood);
     divEntryContainer.appendChild(entryDate);
     divEntryContainer.appendChild(entryInstructor);
-    divEntryContainer.appendChild(deleteButton);
-    divEntryContainer.appendChild(editButton);
+    divEntryContainer.appendChild(buttonContainer);
     return divEntryContainer;
     },
 
     buildEditForm: function(entryObject, entryMain, entryTitle) {
         let editFormFragment = document.createDocumentFragment();
 
-        const dateFieldset = buildEl("fieldset",);
-        dateFieldset.appendChild(buildEl("legend", "Date"));
-        dateFieldset.appendChild(buildEl("input", undefined, "journalEdit-date", "date"));
+        const dateFieldset = buildEl("div",);
+        dateFieldset.classList.add("card-text");
+        dateFieldset.classList.add("bg-light");
+        const editDateLabel = dateFieldset.appendChild(buildEl("label", "Date"));
+        editDateLabel.classList.add("card-text");
+        const editDate = dateFieldset.appendChild(buildEl("input", undefined, "journalEdit-date", "date"));
         editFormFragment.appendChild(dateFieldset);
 
         const titleFieldset = buildEl("fieldset");
